@@ -1,20 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<button (click)="modal4.toggle()">
+    Mostrar modal
+</button>
 
+<app-modal #modal4>
+    <Button (click)="modal.toggle()">API 1 (Dogs Html)</Button>
+    <Button (click)="modal2.toggle()">API 2 (Cat Html)</Button>
+    <Button (click)="modal3.toggle()">API 3 (Tag Cats)</Button>
+    <!-- Modal 1 -->
+    <app-modal #modal>
+        <input type="number" [(ngModel)]="statusCode"/>
+        <button (click)="modal11.toggle()" (click)="consultar()">
+            Mostrar modal
+        </button>
+        <app-modal #modal11>
+            <img *ngIf="linkImage" [src]="linkImage" style="max-width: 300px;"/>
+            <button (click)="modal11.toggle()">Fechar modal</button>
+        </app-modal>
+        <button (click)="modal.toggle()">Sair</button>
+    </app-modal>
+    <!-- Fim modal 1 -->
+    <!-- Modal 2 -->
+    <app-modal #modal2>
+        <input type="number" [(ngModel)]="statusCode"/>
+        <button (click)="modal22.toggle()" (click)="consultar2()">Abrir Api</button>
+        <button (click)="modal2.toggle()">Sair</button>
+        <app-modal #modal22>
+            <img *ngIf="linkImage2" [src]="linkImage2" style="max-width: 300px;">
+            <button (click)="modal22.toggle()">Fechar modal</button>
+        </app-modal>
+    </app-modal>
+    <!-- Fim modal 2 -->
+    <!-- Api 3 -->
+    <app-modal #modal3>
+        <select [(ngModel)]="selectedTag">
+            <option *ngFor="let tag of tags" [value]="tag">{{ tag }}</option>
+        </select>
+        <button (click)="modal33.toggle()" (click)="consultar3()">Abrir Api</button>
+        <button (click)="modal3.toggle()">Sair</button>
+        <app-modal #modal33>
+            <img *ngIf="linkImage3" [src]="linkImage3" style="max-width: 300px;">
+            <button (click)="modal33.toggle()">Fechar modal</button>
+        </app-modal>
+    <!-- Fim Api 3 -->
+</app-modal>
